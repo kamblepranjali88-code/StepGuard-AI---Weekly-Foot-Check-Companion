@@ -1,53 +1,64 @@
 # StepGuard AI — Weekly Foot Check Companion
 
-> **The 30-Second Weekly Guardian Against Diabetic Amputation**
+> **Helping diabetic patients stay connected to their care team — one weekly photo at a time.**
 
-AI-powered early warning system for diabetic foot ulcers. Weekly smartphone-based thermal imaging + MobileNetV2 on-device inference + ASHA worker coordination + ABDM-integrated clinician alerts. Preventing amputation, one scan at a time.
+StepGuard AI is a **care coordination and communication tool** for diabetic foot health. It helps patients (or ASHA workers on their behalf) capture a weekly foot photo, shares those photos securely with the patient's care team through ABDM, and keeps the clinician in control of every decision.
 
+**StepGuard AI does NOT diagnose, score risk, recommend treatment, or provide clinical advice.** It is an assistive coordination tool. Every clinical decision is made by a licensed clinician.
+
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.12-blue)](https://python.org)
+[![Flutter](https://img.shields.io/badge/Flutter-3.24-blue)](https://flutter.dev)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org)
+[![ABDM](https://img.shields.io/badge/ABDM-Integrated-orange)](docs/regulatory/abdm-integration.md)
+
+---
 
 ## The Problem
 
-Diabetic foot ulcers (DFUs) precede approximately **85% of lower extremity amputations**, and most are preventable with early detection. Yet the current care model fails systematically because it relies on two things that rarely happen: patients checking their feet daily, and doctors seeing them frequently enough to catch early changes.
+Diabetic foot ulcers precede approximately **85% of lower extremity amputations**, and most are preventable when changes are caught early. But the current care model depends on two things that rarely happen: patients checking their feet regularly, and doctors seeing them frequently enough to notice early changes.
 
-**Why patients fail at self-checking:**
+**Why patients struggle to check their feet:**
 
-- **Neuropathy destroys the feedback loop.** Diabetes causes peripheral neuropathy — patients literally cannot feel the small injuries, blisters, or pressure points that precede ulcers. By the time something is visible, tissue damage is often advanced.
-- **Vision and mobility barriers.** Many diabetic patients are elderly, have visual impairment, or have limited mobility (arthritis, obesity), making it physically difficult to inspect the soles of their feet.
-- **Psychology of avoidance.** Facing a disease that already demands constant vigilance (blood sugar, diet, medication), adding daily foot exams creates fatigue and denial.
+- **Neuropathy reduces sensation.** Many diabetic patients cannot feel small injuries, blisters, or pressure points. By the time something is visible, tissue damage may already be advanced.
+- **Vision and mobility barriers.** Elderly patients, those with visual impairment, or those with limited mobility often cannot inspect the soles of their own feet.
+- **Care fatigue.** Managing diabetes already requires constant vigilance. Adding daily foot exams creates fatigue and avoidance.
 
-**Why the healthcare system fails:**
+**Why the healthcare system struggles:**
 
-- **Episodic care is too infrequent.** Guidelines recommend risk-based foot assessment frequency, but in reality patients see their doctor every 3–6 months. An ulcer can develop and become infected within weeks.
-- **Rural access gap in India.** With diabetes prevalence soaring in India and specialist podiatrists concentrated in cities, rural patients face enormous barriers. In a Thai study, patients traveled 1–40 km for wound care, costing ~$10 per visit — unsustainable for daily or weekly monitoring.
-- **The "at-risk" population is huge.** In India, **two-thirds of patients attending routine diabetes outpatient services are "at risk"** for foot ulcers, and **9% already have a prevalent ulcer**. This scale overwhelms any specialist-led model.
+- **Episodic care is too infrequent.** Patients typically see their doctor every 3–6 months. Changes can develop within weeks.
+- **Rural access gap in India.** Diabetes prevalence is rising in India, while specialist foot care remains concentrated in cities. In a Thai study, patients traveled 1–40 km for wound care, costing ~$10 per visit — unsustainable for frequent monitoring.
+- **Scale problem.** In India, **two-thirds of patients attending routine diabetes outpatient services are at risk for foot complications**, and **9% already have a prevalent ulcer**. No specialist-led model can reach this population alone.
 
-**The consequence:** Amputation rates remain stubbornly high. In Singapore, nearly **five lower extremity amputations occur every day** in diabetic patients. Each amputation costs the healthcare system far more than prevention, and destroys patient quality of life, mobility, and independence.
+**The gap is not clinical knowledge. It is communication, continuity, and coordination** between patients, ASHA workers, and clinicians between visits.
 
 ---
 
 ## The Solution
 
-StepGuard AI builds a **working prototype** of a smartphone-based weekly foot scan system — one that detects early warning signs of diabetic foot ulcers (redness, swelling, skin breaks, temperature asymmetry) and automatically alerts the care team for proactive intervention.
+StepGuard AI is a **weekly foot check companion**. It helps patients and their care teams stay in touch about foot health between clinic visits.
 
-It does this through **four combined techniques**:
+It does this through **four assistive components**:
 
-1. **On-Device AI Inference** (MobileNetV2 running entirely on the phone)
-2. **Thermal Asymmetry Detection** (contralateral temperature comparison — the strongest early biomarker)
-3. **ASHA Worker Coordination** (human bridge for patients without smartphones)
-4. **ABDM-Native Care Escalation** (FHIR R4 + ABHA + clinician alerts)
+1. **Guided Photo Capture** — A smartphone app helps patients (or ASHA workers) capture a consistent weekly foot photo with proper lighting and framing.
+2. **Image Quality Check** — On-device checks confirm the photo is usable before it is saved or shared.
+3. **Week-over-Week Comparison** — The app shows the patient the current photo next to last week's photo, so they can see changes for themselves.
+4. **Secure Sharing via ABDM** — Photos are shared with the patient's care team using ABDM's consent framework. Clinicians review the photos and decide what to do next.
 
-### Why This Works Clinically
+**Every clinical decision — whether to schedule a teleconsult, request another photo, or refer to a specialist — is made by a clinician.** StepGuard AI only organizes information and helps people communicate.
 
-- **Temperature asymmetry is an early biomarker.** Research shows temperature increases can be identified **up to a week prior** to ulcer occurrence. Thermal imaging combined with AI can distinguish between low, medium, and high-risk diabetic patients using cold stress tests and contralateral (left vs. right foot) temperature comparison.
-- **Smartphone AI achieves clinically relevant accuracy.** A recent IEEE study (IgniSole) demonstrated a MobileNetV2 CNN on smartphone achieving **96.16% accuracy, 98.88% specificity, and 97.96% sensitivity** for DFU detection, with inference in **1–2 seconds on-device**.
-- **Telemedicine for DFU is proven equivalent to in-person specialist care.** A randomized controlled trial in rural Australia found **no statistically significant difference** in wound healing (32% vs. 28%) or amputation rates (23% vs. 25%) between nurse-led telemedicine and usual podiatrist care over 12 weeks.
+### Why This Works
+
+- **Telemedicine for diabetic foot care is well-supported.** A randomized controlled trial in rural Australia found **no statistically significant difference** in wound healing (32% vs. 28%) or amputation rates (23% vs. 25%) between nurse-led telemedicine and usual podiatrist care over 12 weeks. This supports the remote monitoring + escalation model — where the clinician decides.
+- **ASHA worker programs already exist and work.** WDF-funded programs in Karnataka, Orissa, and Tripura have trained ASHA workers in diabetic foot screening, reaching hundreds of thousands of patients.
+- **ABDM provides the infrastructure.** ABHA identity, FHIR R4 data exchange, consent management, and Fidelius encryption are all production-ready in India.
 
 ### Why Now (India-Specific Opportunity)
 
-- **ABDM** provides sandbox and integration toolkits for health tech developers including AI screening tools.
-- **CDSCO** has a regulatory pathway for AI-enabled medical devices under Medical Devices Rules, 2017.
-- **SAHI** (Strategy for AI in Healthcare in India) and **BODH** (Benchmarking Open Data Platform for Health AI) frameworks launched in 2026 provide national guidance for safe, ethical AI deployment.
-- **ASHA workers** are already being trained and deployed for diabetic foot screening across multiple states (Karnataka, Orissa, Tripura), with proven programs reaching hundreds of thousands.
+- **ABDM** provides sandbox and integration toolkits for health tech developers.
+- **DPDP Act 2023** provides a clear data protection framework.
+- **ASHA workers** are already deployed for diabetic foot screening in multiple states.
+- **eSanjeevani** provides a national telemedicine platform with ABDM integration.
 
 ---
 
@@ -57,29 +68,29 @@ It does this through **four combined techniques**:
 flowchart LR
     subgraph S1["1. Patient Layer"]
         direction TB
-        D1["Flutter App<br/><i>(Guided Camera Capture)</i>"]
-        D2["On-Device AI<br/><i>(MobileNetV2 / TFLite)</i>"]
-        D3["Risk Score<br/><i>(Low / Medium / High)</i>"]
+        D1["Flutter App<br/><i>(Guided Photo Capture)</i>"]
+        D2["On-Device Quality Check<br/><i>(Image Quality Only)</i>"]
+        D3["Photo Comparison<br/><i>(This Week vs Last Week)</i>"]
     end
 
     subgraph S2["2. Sync Layer"]
-        P1["Encrypted Sync<br/><i>(When Online)</i>"]
+        P1["Encrypted Sync<br/><i>(When Online + Consent)</i>"]
     end
 
     subgraph S3["3. Backend Layer"]
         direction TB
         C1["API Gateway<br/><i>(FastAPI)</i>"]
-        C2["Alert Triage Engine<br/><i>(Priority Routing)</i>"]
-        C3["ABDM Integration<br/><i>(FHIR R4 + ABHA)</i>"]
+        C2["Photo Routing<br/><i>(To Care Team)</i>"]
+        C3["ABDM Integration<br/><i>(FHIR R4 + ABHA + Consent)</i>"]
     end
 
     subgraph S4["4. Care Team Layer"]
-        DB["Clinician Dashboard<br/><i>(Triage Queue)</i>"]
+        DB["Clinician Dashboard<br/><i>(Review Queue)</i>"]
         ASHA["ASHA Worker App<br/><i>(Task Queue)</i>"]
     end
 
     subgraph S5["5. Outcome"]
-        OUT["Headline Metrics<br/><b>📉 % Amputations Prevented</b><br/><b>⏱️ Time-to-Intervention</b>"]
+        OUT["Clinician Decides<br/><b>🩺 Teleconsult</b><br/><b>📷 Request Another Photo</b><br/><b>🏥 Refer to Specialist</b>"]
     end
 
     D1 --> D2
@@ -112,72 +123,72 @@ flowchart LR
 
 ### 1. Patient Layer
 
-This is where the actual foot scan happens. It runs entirely on the smartphone (Android-first, iOS-ready).
+The patient (or ASHA worker) uses a Flutter app to capture a weekly foot photo.
 
 - **Flutter App** — Cross-platform mobile app with guided camera capture (foot outline overlay, lighting check, framing guidance). Supports Hindi + English + regional languages.
-- **On-Device AI** — MobileNetV2 model quantized to INT8 and running via TensorFlow Lite (LiteRT). Inference happens in 1–2 seconds, entirely offline.
-- **Risk Score** — Output is a 3-level classification (Low / Medium / High) with confidence score and Grad-CAM heatmap showing *why* the AI flagged a region.
-- **Thermal Analysis** — If FLIR One / Seek Thermal module is attached, contralateral temperature delta (ΔT) is computed. ΔT > 2.2°C triggers asymmetry flag.
+- **On-Device Quality Check** — OpenCV-based checks confirm the image is sharp, well-lit, and the foot is fully in frame. No clinical analysis is performed on-device.
+- **Photo Comparison** — The app shows the patient the current photo side-by-side with last week's photo. This is a visual reference for the patient, not a clinical interpretation.
 
-*Role:* Capture foot images, run AI inference on-device, display immediate result to patient/ASHA/caregiver.
+*Role:* Help patients and ASHA workers capture consistent weekly photos and see changes for themselves.
 
 ### 2. Sync Layer
 
 Since rural India has intermittent connectivity, the app is **offline-first**.
 
-- **Local Storage** — SQLite with AES-256 encryption stores scans when offline.
-- **Encrypted Sync** — When connectivity returns, scan packages sync to backend over HTTPS (TLS 1.3).
-- **Data Minimization** — Low-risk scans sync metadata only (no image). Medium/High-risk scans sync full package (image + Grad-CAM + thermal).
+- **Local Storage** — Encrypted SQLite stores photos locally until the patient consents to share.
+- **Encrypted Sync** — When connectivity returns and the patient has consented, photos sync to the backend over HTTPS (TLS 1.3).
+- **Data Minimization** — Patients can choose to share all photos or only specific ones. Nothing is shared without consent.
 
-*Role:* Ensure no data is lost in low-connectivity environments.
+*Role:* Respect patient consent and connectivity realities.
 
 ### 3. Backend Layer
 
-FastAPI microservices handle ingestion, triage, and integration.
+FastAPI microservices handle ingestion, routing, and ABDM integration.
 
 - **API Gateway** — Nginx + FastAPI routes requests, validates JWT + ABHA tokens, enforces rate limits.
-- **Alert Triage Engine** — Consumes scan events, fetches patient history, computes priority score, routes to appropriate care team member.
-- **ABDM Integration** — Converts scan findings to FHIR R4 resources (Observation, DiagnosticReport, ReferralRequest). Handles ABHA identity, consent artifacts, and Fidelius encryption.
+- **Photo Routing** — Routes photos to the correct clinician based on the patient's registered care team.
+- **ABDM Integration** — Packages photos into FHIR R4 resources (Observation, DiagnosticReport) for exchange. Handles ABHA identity, consent artifacts, and Fidelius encryption.
 
-*Role:* Ingest scan data, prioritize alerts, and integrate with India's national health infrastructure.
+*Role:* Move photos securely from patient to care team via India's national health infrastructure.
 
 ### 4. Care Team Layer
 
-Two separate interfaces for two different users.
+Two interfaces, both built for humans making decisions.
 
-- **Clinician Dashboard** (Next.js + React) — Triage queue with real-time WebSocket updates. Shows scan image, Grad-CAM overlay, 8-week risk trend, patient history, and action buttons (Confirm & refer to PHC / Request rescan / Start teleconsult / Override AI).
-- **ASHA Worker App** (Flutter) — Task queue in Hindi + English. Shows patients needing visit, scan due, or completed. Includes offline maps, guided capture, and one-tap call to PHC.
+- **Clinician Dashboard** (Next.js + React) — Review queue with real-time WebSocket updates. Shows the current photo, the previous photo, and the patient's history. Action buttons: **Schedule teleconsult / Request another photo / Refer to specialist / Add note**.
+- **ASHA Worker App** (Flutter) — Task queue in Hindi + English. Shows patients due for a weekly photo visit. Includes offline maps, guided capture, and one-tap call to PHC.
 
-*Role:* Enable clinicians to review and decide; enable ASHA workers to act in the field.
+*Role:* Enable clinicians to review photos and decide next steps; enable ASHA workers to act in the field.
 
 ### 5. Outcome
 
-Synthesizes the overall impact into key evaluation metrics:
+Success is measured by clinician-decided outcomes and patient engagement:
 
-- **% Reduction in Time-to-Intervention** (vs. routine 3-6 month checkups)
-- **% Reduction in Amputations** (long-term outcome)
-- **% Adherence to Weekly Scans** (patient/ASHA engagement)
-- **Sensitivity / Specificity** of AI detection (vs. clinician ground truth)
-- **Time Saved** for clinicians (triage efficiency)
+- **% of weekly photos captured** (patient/ASHA engagement)
+- **% of photos reviewed by clinician within 48 hours** (care team responsiveness)
+- **% of reviewed cases where clinician scheduled a follow-up** (escalation rate)
+- **% reduction in time-to-clinician-review** (vs. routine visits)
+- **Patient-reported satisfaction with the weekly check-in**
 
-Benchmarked against a naive baseline (no AI, no weekly monitoring, quarterly clinic visits only).
+Benchmarked against baseline (routine visits every 3–6 months, no weekly photo monitoring).
 
 ---
 
-## What's Novel Here vs. Existing Research
+## What's Novel Here vs. Existing Work
 
 This project builds on well-established foundations:
 
-- **MobileNetV2 for DFU detection** — IgniSole study (IEEE) already proved 96%+ accuracy on-device.
-- **Thermal asymmetry as early biomarker** — Established clinical research (1-week pre-ulcer detection).
-- **Telemedicine for DFU** — RCT-proven equivalent to in-person care.
-- **ASHA worker programs** — WDF-funded projects in Karnataka, Orissa, Tripura.
+- **Telemedicine for diabetic foot care** — RCT-proven equivalent to in-person care in rural settings.
+- **ASHA worker programs** — WDF-funded projects in Karnataka, Orissa, and Tripura with proven training models.
+- **ABDM infrastructure** — ABHA, FHIR R4, consent management, and Fidelius encryption.
+- **Guided photo capture** — Standard mobile UI pattern.
 
-**Key Contribution:** Integrating all four into a **unified, end-to-end, ABDM-native prototype** that:
-1. Runs AI entirely on-device (privacy + offline)
-2. Bridges patients without smartphones via ASHA workers
-3. Escalates alerts through India's national health infrastructure (ABDM)
-4. Complies with CDSCO SaMD regulations (IEC 62304 + ISO 14971)
+**Key Contribution:** An **end-to-end, ABDM-native coordination tool** that:
+
+1. Lets patients (or ASHA workers) capture weekly foot photos easily.
+2. Shares photos securely with the care team using ABDM's consent framework.
+3. Keeps the clinician in control of every clinical decision.
+4. Works offline-first for rural India.
 
 No existing open-source project combines these four elements into a single working prototype.
 
@@ -190,33 +201,29 @@ No existing open-source project combines these four elements into a single worki
 | **Mobile Apps** | Patient / ASHA / Caregiver | Flutter 3.24 (Dart) |
 | **Clinician Portal** | Web dashboard | Next.js 16 + React 19 + TypeScript |
 | **UI Components** | Dashboard UI | shadcn/ui + Radix + Tailwind CSS |
-| **Charts** | Risk trend viz | Recharts |
-| **Medical Imaging** | Scan viewer | Cornerstone.js |
-| **On-Device AI** | Inference runtime | TensorFlow Lite (LiteRT) |
-| **AI Model** | DFU detection | MobileNetV2 (INT8 quantized) |
-| **Image Processing** | Preprocessing | OpenCV Mobile |
-| **Thermal SDK** | Thermal camera | FLIR Mobile SDK / Seek Thermal SDK |
+| **Charts** | Photo timeline | Recharts |
+| **Image Viewer** | Photo viewer | Standard web image + comparison |
+| **On-Device** | Image quality check | OpenCV Mobile |
 | **Local Storage** | Offline DB | SQLite (AES-256 encrypted) |
 | **Backend API** | Microservices | FastAPI (Python 3.12) |
 | **ORM** | Database access | SQLAlchemy 2.0 |
 | **Validation** | Schema validation | Pydantic 2.9 |
 | **Primary DB** | Relational data | PostgreSQL 16 |
 | **Cache** | Sessions + queues | Redis 7 |
-| **Image Storage** | Scan images | S3 / MinIO (encrypted) |
+| **Image Storage** | Photo storage | S3 / MinIO (encrypted) |
 | **Message Queue** | Async events | RabbitMQ / Kafka |
 | **Task Queue** | Background jobs | Celery + Redis |
 | **ABDM SDK** | National health ID | abdm-sdk-node / ABDM-Wrapper |
 | **FHIR** | Health data standard | HL7 FHIR R4 |
 | **Encryption** | ABDM data exchange | Fidelius (X25519 + AES-GCM) |
 | **Telemedicine** | Video consults | eSanjeevani / Zoom Video SDK |
-| **Notifications** | Push + SMS + IVR | FCM + SMS gateway + Exotel |
+| **Notifications** | Push + SMS | FCM + SMS gateway |
 | **Real-time** | Dashboard updates | WebSocket (Socket.io) |
 | **Auth** | Identity | OAuth 2.0 + ABHA + JWT |
 | **CI/CD** | Build + deploy | GitHub Actions |
 | **Container** | Packaging | Docker + Kubernetes |
 | **Monitoring** | Metrics | Prometheus + Grafana |
 | **Logging** | Audit trails | ELK Stack |
-| **Compliance** | SaMD standards | IEC 62304 + ISO 14971 |
 
 ---
 
@@ -230,28 +237,11 @@ stepguard-ai/
 │   ├── caregiver-app/                 → Flutter caregiver app
 │   └── clinician-portal/              → Next.js clinician dashboard
 │
-├── ml/                                → Machine learning pipeline
-│   ├── training/                      → Model training scripts
-│   │   ├── configs/                   → Training configs
-│   │   ├── src/                       → Data, models, trainer
-│   │   └── scripts/                   → train.py, evaluate.py
-│   ├── models/                        → Trained model artifacts
-│   │   ├── production/                → Production .tflite models
-│   │   └── staging/                   → Staging models
-│   ├── datasets/                      → Dataset management
-│   │   ├── raw/                       → Raw data (git-ignored)
-│   │   ├── processed/                 → Preprocessed data
-│   │   └── annotations/               → Ground truth labels
-│   ├── notebooks/                     → Jupyter notebooks
-│   ├── evaluation/                    → Model evaluation
-│   └── export/                        → TFLite / ONNX export
-│
 ├── services/                          → Backend microservices
 │   ├── api-gateway/                   → Nginx + FastAPI gateway
 │   ├── auth-service/                  → JWT + ABHA auth
 │   ├── patient-service/               → Patient CRUD
-│   ├── scan-service/                  → Scan ingestion
-│   ├── alert-triage-service/          → Alert prioritization
+│   ├── photo-service/                 → Photo ingestion + routing
 │   ├── notification-service/          → Multi-channel notify
 │   ├── asha-task-service/             → ASHA task queue
 │   ├── teleconsult-service/           → Video sessions
@@ -275,17 +265,11 @@ stepguard-ai/
 │   ├── dart/                          → Dart shared code
 │   └── typescript/                    → TypeScript shared code
 │
-├── compliance/                        → Regulatory compliance
-│   ├── iec-62304/                     → Software lifecycle
-│   ├── iso-14971/                     → Risk management
-│   ├── cdsco/                         → CDSCO submissions
-│   └── dpdp/                          → Data protection
-│
 ├── docs/                              → Documentation
 │   ├── architecture/                  → System architecture
 │   ├── api/                           → API docs
-│   ├── clinical/                      → Clinical protocols
-│   ├── regulatory/                    → CDSCO compliance
+│   ├── clinical/                      → Care coordination protocols
+│   ├── regulatory/                    → ABDM + DPDP compliance
 │   ├── deployment/                    → Deployment guides
 │   └── user-guides/                   → User manuals
 │
@@ -293,7 +277,6 @@ stepguard-ai/
 │   ├── unit/                          → Unit tests
 │   ├── integration/                   → Integration tests
 │   ├── e2e/                           → End-to-end tests
-│   ├── load/                          → Load testing
 │   └── security/                      → Security testing
 │
 ├── scripts/                           → Utility scripts
@@ -301,63 +284,8 @@ stepguard-ai/
 ├── docker-compose.yml                 → Local dev orchestration
 ├── requirements.txt                   → Python dependencies
 ├── Makefile                           → Common commands
-├── LICENSE                            → Apache 2.0
+├── LICENSE                            → MIT License
 └── README.md                          → This file
-```
-
----
-
-## Dataset
-
-The ML pipeline uses two types of data:
-
-### 1. Public Plantar Thermogram Datasets
-
-- **IAC-TecMed Database** — Public infrared thermography dataset for diabetic foot monitoring. Includes thermographic and RGB-D images captured under controlled conditions.
-- **Derived Dataset** — 1000+ transformed plantar thermograms for computer vision tasks.
-
-### 2. Clinical Partner Data
-
-- Annotated foot images collected from partner hospitals and clinics (with patient consent, IRB-approved).
-- Must include diverse skin tones, lighting conditions, and foot types representative of the Indian population.
-
-### Setup
-
-1. Download the public datasets from their sources (links in `ml/datasets/README.md`).
-2. Place them in:
-
-```text
-ml/datasets/raw/
-```
-
-The structure should look like:
-
-```text
-ml/datasets/
-└── raw/
-    ├── iac_tecmed/
-    ├── clinical_partner_a/
-    └── clinical_partner_b/
-```
-
-The `ml/datasets/raw/` folder is excluded from GitHub because datasets may contain large files.
-
-### Usage
-
-The dataset is used to:
-
-- Analyze historical thermal patterns of diabetic feet.
-- Train the MobileNetV2 model for DFU detection.
-- Validate model performance (sensitivity, specificity, AUC).
-- Benchmark against clinical ground truth (podiatrist/endocrinologist assessment).
-- Test thermal asymmetry detection algorithms.
-
-After placing the dataset in `ml/datasets/raw/`, run the preprocessing pipeline before training:
-
-```bash
-cd ml
-python datasets/scripts/preprocess.py
-python datasets/scripts/split.py
 ```
 
 ---
@@ -424,16 +352,7 @@ flutter run
 
 ## Usage
 
-### 1. Train the AI Model
-
-```bash
-cd ml
-make train CONFIG=configs/exp001_mobilenetv2.yaml
-make evaluate MODEL=models/production/mobilenetv2_dfuse_v1.3.2.tflite
-make export-tflite
-```
-
-### 2. Run the Patient App
+### 1. Run the Patient App
 
 ```bash
 cd apps/patient-app
@@ -442,12 +361,12 @@ flutter run
 
 Then:
 1. Complete onboarding (link ABHA ID)
-2. Tap "Start Weekly Scan"
+2. Tap "Start Weekly Foot Check"
 3. Follow guided camera capture
-4. View AI result (Low / Medium / High risk)
-5. If Medium/High, care team is automatically notified
+4. Review the photo — see it side-by-side with last week's
+5. Choose whether to share with your care team
 
-### 3. Run the Clinician Dashboard
+### 2. Run the Clinician Dashboard
 
 ```bash
 cd apps/clinician-portal
@@ -456,11 +375,11 @@ npm run dev
 
 Then:
 1. Login with clinician credentials
-2. View triage queue
-3. Click any case to see scan image, Grad-CAM, risk trend
-4. Take action: Confirm & refer / Request rescan / Start teleconsult / Override
+2. View the review queue
+3. Click any case to see the current photo, previous photo, and patient history
+4. Take action: **Schedule teleconsult / Request another photo / Refer to specialist / Add note**
 
-### 4. Run the ASHA Worker App
+### 3. Run the ASHA Worker App
 
 ```bash
 cd apps/asha-app
@@ -470,40 +389,22 @@ flutter run
 Then:
 1. Login with ASHA credentials
 2. View "Today's list" (आज की सूची)
-3. Tap patient to start assisted scan
+3. Tap patient to start assisted photo capture
 4. Follow guided capture
-5. Act on result (Call PHC / Schedule teleconsult / Mark done)
+5. Help patient consent to share with care team
 
-### 5. Run Tests
+### 4. Run Tests
 
 ```bash
 # Python tests
-pytest tests/ -v --cov=services --cov=ml
+pytest tests/ -v --cov=services
 
 # Flutter tests
 cd apps/patient-app && flutter test
 
 # Portal tests
 cd apps/clinician-portal && npm test
-
-# Load tests
-k6 run tests/load/scan-api.js
 ```
-
----
-
-## Model Performance
-
-| Metric | Value |
-|--------|-------|
-| **Accuracy** | 96.16% |
-| **Sensitivity** | 97.96% |
-| **Specificity** | 98.88% |
-| **Inference Time** | 1–2 seconds |
-| **Model Size** | 3.5 MB (INT8 quantized) |
-| **Architecture** | MobileNetV2 (fine-tuned) |
-| **Explainability** | Grad-CAM heatmaps |
-| **Thermal Boost** | ΔT > 2.2°C → +1 risk level |
 
 ---
 
@@ -511,7 +412,7 @@ k6 run tests/load/scan-api.js
 
 StepGuard AI is **ABDM-native**:
 
-- **ABHA** — Patient identity (link scans to national health ID)
+- **ABHA** — Patient identity (link photos to national health ID)
 - **HFR** — Facility registry (verified hospitals)
 - **HPR** — Professional registry (verified clinicians)
 - **FHIR R4** — Data exchange standard (Observation, DiagnosticReport, ReferralRequest)
@@ -530,29 +431,18 @@ python -m pytest tests/ -v
 
 ---
 
-## Regulatory Compliance
+## Regulatory & Compliance
 
-StepGuard AI is designed as **Software as a Medical Device (SaMD)** under CDSCO regulations.
+StepGuard AI is designed as an **assistive care coordination tool**, not a diagnostic device. It is compatible with:
 
 | Standard | Status |
 |----------|--------|
-| IEC 62304 (Software Lifecycle) | ✅ Implemented |
-| ISO 14971 (Risk Management) | ✅ Implemented |
-| CDSCO SaMD Pathway | 🔄 In Progress |
 | DPDP Act 2023 | ✅ Compliant |
 | ABDM Integration | ✅ Sandbox Tested |
-| BODH Validation | 🔄 In Progress |
+| FHIR R4 | ✅ Implemented |
+| IEC 62304 (reference) | ✅ Architecture Aligned |
 
-### CDSCO Required Documentation
-
-- Essential Principles Checklist
-- Verification and Validation documentation (software)
-- Risk analysis and control documents
-- Clinical evidence supporting safety, performance, and effectiveness
-- Quality Management System documents
-- Software version release certificates
-
-📖 **[Regulatory Docs →](docs/regulatory)**
+**Note:** Clinical use requires review by a licensed clinician. StepGuard AI does not diagnose, score risk, recommend treatment, or provide clinical advice.
 
 ---
 
@@ -560,63 +450,57 @@ StepGuard AI is designed as **Software as a Medical Device (SaMD)** under CDSCO 
 
 A working end-to-end prototype demonstrated in three scenarios:
 
-### Scenario 1: Baseline (No AI, No Weekly Monitoring)
+### Scenario 1: Baseline (No Weekly Monitoring)
 - Patient visits doctor every 3–6 months
-- Foot ulcer detected when visible (often too late)
-- Amputation risk: high
+- Changes noticed only during scheduled visits
+- Delayed communication between visits
 
-### Scenario 2: StepGuard AI (Patient Self-Scan)
-- Patient scans weekly on their own smartphone
-- AI detects early changes
-- Clinician alerted within 24 hours
-- Intervention before ulcer becomes visible
+### Scenario 2: StepGuard AI (Patient Self-Capture)
+- Patient captures a weekly foot photo on their own smartphone
+- Photo is shared with the care team (with consent)
+- Clinician reviews within 48 hours and decides next step
 
 ### Scenario 3: StepGuard AI (ASHA-Assisted)
-- ASHA worker scans elderly/non-smartphone patients
-- AI detects early changes
-- Clinician + PHC alerted immediately
-- Intervention within hours
+- ASHA worker captures a weekly photo for elderly/non-smartphone patients
+- Photo is shared with the care team (with consent)
+- Clinician reviews and coordinates next step (teleconsult, PHC visit, or specialist referral)
 
 ### Headline Metrics
 
-- **% Reduction in Time-to-Intervention** (vs. baseline)
-- **% Reduction in Amputations** (long-term)
-- **% Adherence to Weekly Scans** (engagement)
-- **AI Sensitivity / Specificity** (vs. clinician ground truth)
-- **ASHA Task Completion Rate**
+- **% of weekly photos captured** (engagement)
+- **% of photos reviewed by clinician within 48 hours** (responsiveness)
+- **% of reviewed cases where clinician scheduled a follow-up** (escalation)
+- **% reduction in time-to-clinician-review** (vs. baseline)
+- **Patient-reported satisfaction** with the weekly check-in
 
 ---
 
 ## Contributing
 
-We welcome contributions from clinicians, ML engineers, Flutter developers, and public health experts.
+We welcome contributions from clinicians, Flutter developers, backend engineers, and public health experts.
 
 - **Read:** [CONTRIBUTING.md](CONTRIBUTING.md)
 - **Code of Conduct:** [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 - **Security Policy:** [SECURITY.md](SECURITY.md)
 
-### Good First Issues
-
-Look for issues tagged [`good first issue`](https://github.com/kamblepranjali88-code/StepGuard-Weekly-Foot-Scan/labels/good%20first%20issue).
-
 ---
 
 ## License
 
-Apache License 2.0 — see [LICENSE](LICENSE) for details.
+MIT License — see [LICENSE](LICENSE) for details.
 
-**Note:** This is a medical device software. Clinical use requires CDSCO approval. See [compliance/](compliance/) for details.
+Copyright (c) 2026 **Pranjali Kamble**
+
+**Note:** This is an assistive coordination tool. Clinical use requires review by a licensed clinician. StepGuard AI does not diagnose, score risk, recommend treatment, or provide clinical advice.
 
 ---
 
 ## Acknowledgments
 
-- **IgniSole Study** (IEEE) — MobileNetV2 baseline for DFU detection
-- **IAC-TecMed Database** — Public plantar thermogram dataset
 - **World Diabetes Foundation** — ASHA training program models
 - **ABDM Team** — Sandbox and integration support
-- **IIT Kanpur BODH** — AI validation framework
 - **All ASHA workers** — The human bridge that makes this work
+- **Telemedicine RCT (rural Australia)** — Evidence for remote care coordination
 
 ---
 
@@ -626,9 +510,7 @@ Apache License 2.0 — see [LICENSE](LICENSE) for details.
 |---------|---------|
 | General | hello@stepguard.in |
 | Clinical | clinical@stepguard.in |
-| Regulatory | regulatory@stepguard.in |
 | Security | security@stepguard.in |
-| Press | press@stepguard.in |
 
 ---
 
