@@ -1,4 +1,4 @@
-# StepGuard AI — Weekly Foot Scan
+# StepGuard AI — Weekly Foot Check Companion
 
 > **The 30-Second Weekly Guardian Against Diabetic Amputation**
 
